@@ -4,12 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Çankırı Sağlık İl Müdürlüğü Bilgi Sistemleri Github sayfasıdır.
 
-### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
 
-### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+### İletişim
+
+[csm.bilsis@saglik.gov.tr](mailto:cms.bilsis@saglik.gov.tr)
