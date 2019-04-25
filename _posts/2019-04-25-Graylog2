@@ -3,4 +3,6 @@
 layout: post
 title: Graylog İle Örnek Log Toplama
 ---
-Graylog yazı dizisine kaldığımız yerden devam ediyoruz. Sunucumuzda oluşan logları graylog sunucumuza gönderiyor olacağız.
+Graylog yazı dizisine kaldığımız yerden devam ediyoruz. Sunucumuzda oluşan logları graylog sunucumuza gönderiyor olacağız.  
+  
+  ![graylogui](/images/graylogui2.jpeg)
