@@ -35,7 +35,7 @@ Sıra geldi program bileşenlerini belirtmeye. Görevimiz PowerShell.exe'yi teti
 ve görevimiz hazır.   
 
 ## Betik Düzenleme ## 
-Betiği istediğimiz gibi düzenleyebiliriz. Örneğin biz, tanımladığımımz bir gmail adresinden bize mail gelmesi için düzenleme yapacağız.  
+Betiği istediğimiz gibi düzenleyebiliriz. Örneğin biz, tanımladığımız bir gmail adresinden bize mail gelmesi için düzenleme yapacağız.  
 
 Betik içerisindeki 17-20. satırları;  
 ```PowerShell
@@ -67,6 +67,12 @@ $msg.isBodyhtml = $true
 
 $smtp.send($msg) 
 ```  
+Eğer mail olarak bildirim alamıyorsanız e-posta sağlayıcı güvenlik ayalarını ve sunucunuz önünde konumlandırılan güvenlik duvarını kontrol etmenizi tavsiye ederiz. Ayrıca betiğin koştuğu platformun dilinin İngilizce olması gerekmektedir.  
+
+## Çıktı ##  
+
+![mail](/images/mail.png)  
+
 Hepsi bu kadar. Kıymetli vaktinizi ayırdığınız için teşekkür ederiz.  
 
 
