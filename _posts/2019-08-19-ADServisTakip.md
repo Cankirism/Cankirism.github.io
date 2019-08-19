@@ -5,7 +5,7 @@ title: Bir e-posta ile Aktif Dizin Servislerininin takibi
    Genellikle tüm sistem yöneticilerinin ortak problemidir yönettiği sistemlerin takibi. Bazı IT ekipleri kendi yazdıkları araçlar ile, bazı IT ekipleri ise kullandıkları sistemlerin kendilerine sundukları arayüzler ve araçlar ile sistemlerin durumlarını takip etmektedirler.   Bu yazımız , aktif dizin yöneticilerinin, aktif dizin servis sağlığını, ilave bir işlem yapmadan, e-posta adreslerine  gelen bir mail ile takip etmelerini amaçlamaktadır.   
    
 Yazımızın ilham kaynağı, Sukhija Vikas'ın yayınlamış olduğu PowerShell betiğidir. Bu yazımızda, betik üzerinde ufak düzenlemeler yapıp, sunucu üzerinde otomatik görev oluşturup, düzenli olarak bildirim gelmesini sağlayacağız.  
-** Ön Hazırlık **
+## Ön Hazırlık ##
 
 Öncelikle betiğimizi [Şu](https://gallery.technet.microsoft.com/scriptcenter/Active-Directory-Health-709336cd) likten indirelim.Klasör içerisinde 1 adet PS betik dosyası ve 1 adet bat dosyası yer almaktadır. AD Sunucumuzda C:\ dizini altında "ADHealth" adlı klasör oluşturup içerisine bu dosyaları kopyalayalım.  
 
@@ -34,7 +34,7 @@ Sıra geldi program bileşenlerini belirtmeye. Görevimiz PowerShell.exe'yi teti
 ![betik](/images/betik.png)  
 ve görevimiz hazır.   
 
-** Betik Düzenleme ** 
+## Betik Düzenleme ## 
 Betiği istediğimiz gibi düzenleyebiliriz. Mesela biz, tanımladığımımz bir gmail adresinden bize mail gelmesi için düzenleme yapacağız.  
 
 Betik içerisindeki 17-20. satırları  
