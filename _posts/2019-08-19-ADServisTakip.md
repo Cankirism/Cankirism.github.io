@@ -47,7 +47,7 @@ $timeout = "60"
  Aşağıdaki gibi düzenledik.
  
  ```PowerShell 
- $smtphost = "smtp.gmail.com" 
+$smtphost = "smtp.gmail.com" 
 $from = "gonderenEposta@gmail.com" 
 $email1 = "alicininEpostasi"
 $timeout = "60"
@@ -67,7 +67,8 @@ $msg.isBodyhtml = $true
 
 $smtp.send($msg) 
 ```  
-Hepsi bu kadar. Yazımızı okuduğunuz için teşekkürler .  
+Hepsi bu kadar. Kıymetli vaktinizi ayırdığınız için teşekkür ederiz.  
+
 
 
 
