@@ -30,8 +30,8 @@ Bir sonraki aşamada görevimizin fonksiyonunu belirtelim. Görevimiz bir progra
 
 ![start](/images/StartProgram.png)  
 
-Sıra geldi program bileşenlerini belirtmeye. Programımız PowerShell.exe'yi tetikleyecek ve C:\ADHealth dizini altındaki ps1 dosyasımızı çalıştıracaktır.  
-![betik](/images/betik)  
+Sıra geldi program bileşenlerini belirtmeye. Görevimiz PowerShell.exe'yi tetikleyecek ve C:\ADHealth dizini altındaki ps1 dosyasımızı çalıştıracaktır.  
+![betik](/images/betik.png)  
 ve görevimiz hazır.   
 
 ** Betik Düzenleme ** 
