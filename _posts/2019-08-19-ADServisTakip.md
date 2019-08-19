@@ -67,7 +67,7 @@ $msg.isBodyhtml = $true
 
 $smtp.send($msg) 
 ```  
-Eğer mail olarak bildirim alamıyorsanız e-posta sağlayıcı güvenlik ayalarını ve sunucunuz önünde konumlandırılan güvenlik duvarını kontrol etmenizi tavsiye ederiz. Ayrıca betiğin koştuğu platformun dilinin İngilizce olması gerekmektedir.  
+Eğer mail olarak bildirim alamıyorsanız e-posta sağlayıcı güvenlik ayarlarını ve sunucunuz önünde konumlandırılan güvenlik duvarını kontrol etmenizi tavsiye ederiz. Ayrıca betiğin koştuğu platformun dilinin İngilizce olması gerekmektedir.  
 
 ## Çıktı ##  
 
