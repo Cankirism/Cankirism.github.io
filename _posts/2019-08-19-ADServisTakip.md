@@ -74,6 +74,7 @@ Eğer mail olarak bildirim alamıyorsanız e-posta sağlayıcı güvenlik ayarla
 ![mail](/images/mail.png)  
 
 Hepsi bu kadar. Kıymetli vaktinizi ayırdığınız için teşekkür ederiz.  
+<a href="https://github.com/Cankirism/Cankirism.github.io/blob/master/_posts/2019-08-19-ADServisTakip.md">Yazının github linki</a> 
 
 
 
