@@ -17,7 +17,7 @@ Klasör içerisinde 1 adet PS betik dosyası ve 1 adet bat dosyası yer almaktad
 ![isim](/images/Name.png)  
 
 Bir sonraki aşamada görev planlaması yapalım.Görev hergün saat 09:15'de çalışsın.  
-![zaman[(/images/Daily.png)  
+![zaman](/images/Daily.png)  
 
 
 
