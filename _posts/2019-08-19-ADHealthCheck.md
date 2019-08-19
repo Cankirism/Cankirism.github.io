@@ -23,7 +23,7 @@ Yazımızın ilham kaynağı, Sukhija Vikas'ın yayınlamış olduğu PowerShell
 
 Bir sonraki aşamada görev planlaması yapalım.Görev hergün saat 09:15'de çalışsın.  
 
-![zaman](/images/Daily.png)  
+![zaman](/images/1Days.png)  
 
 
 
