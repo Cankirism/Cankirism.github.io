@@ -35,16 +35,41 @@ Sıra geldi program bileşenlerini belirtmeye. Görevimiz PowerShell.exe'yi teti
 ve görevimiz hazır.   
 
 ## Betik Düzenleme ## 
-Betiği istediğimiz gibi düzenleyebiliriz. Mesela biz, tanımladığımımz bir gmail adresinden bize mail gelmesi için düzenleme yapacağız.  
+Betiği istediğimiz gibi düzenleyebiliriz. Örneğin biz, tanımladığımımz bir gmail adresinden bize mail gelmesi için düzenleme yapacağız.  
 
-Betik içerisindeki 17-20. satırları  
+Betik içerisindeki 17-20. satırları;  
 ```PowerShell
 $smtphost = "smtp.labtest.com" 
 $from = "DoNotReply@labtest.com" 
 $email1 = "Sukhija@labtest.com"
 $timeout = "60"
 ``` 
+ Aşağıdaki gibi düzenledik.
  
+ ```PowerShell 
+ $smtphost = "smtp.gmail.com" 
+$from = "gonderenEposta@gmail.com" 
+$email1 = "alicininEpostasi"
+$timeout = "60"
+```    
+Ayrıca SSL ve Kimlik Bilgileri(Credentials) için 343. satırdan itiabren şu düzenlemeleri yaptık :  
+
+```PowerShell
+$smtp= New-Object System.Net.Mail.SmtpClient $smtphost 
+$smtp.Credentials = New-Object System.Net.NetworkCredential("gonderenEposta@gmail.com","parola")
+$smtp.EnableSsl = $true
+$msg = New-Object System.Net.Mail.MailMessage 
+$msg.To.Add($email1)
+$msg.from = $from
+$msg.subject = $subject
+$msg.body = $body 
+$msg.isBodyhtml = $true 
+
+$smtp.send($msg) 
+```  
+Hepsi bu kadar. Yazımızı okuduğunuz için teşekkürler .  
+
+
 
 
 
