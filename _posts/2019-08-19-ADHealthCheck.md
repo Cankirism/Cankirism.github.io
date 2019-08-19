@@ -1,7 +1,7 @@
 
 ---
 layout: post
-title: Bir e-posta ile Active Dizin Servislerininin takibi .
+title: Bir e-posta ile Active Dizin Servislerininin takibi
 ---  
 
 Genellikle tüm sistem yöneticilerinin ortak problemidir yönettiği sistemlerin takibi. Bazı IT ekipleri kendi yazdıkları araçlar ile, bazı IT ekipleri ise kullandıkları sistemlerin kendilerine sundukları arayüzler ve araçlar ile sistemlerin durumlarını takip etmektedirler. Bu yazımız , aktif dizin yöneticilerinin, aktif dizin servis sağlığını, ilave bir işlem yapmadan, e-posta adreslerine  gelen bir mail ile takip etmelerini amaçlamaktadır.  
