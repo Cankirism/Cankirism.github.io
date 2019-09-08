@@ -125,8 +125,8 @@ Yani bir olay tanımlayacağız ve bu olayı ortama fırlatacağız. Olayı teti
         }
     }
 ```
-Uygulamamızın amacı personel kaydı yapıp, personel izin kullandığında, kalan izin gün sayısını kontrol edip, kalan izin 3'ün altında ise ortama olay fıtlatmak. Şimdi kodumuzda ne yaptık bakalım :   
-1- Öncelikle PersonelLibrary isimli kütüphanemizi tanımlaıdk ve içerisinde Personel isminde sınıf tanımlaması gerçekleştirdik.  
+Uygulamamızın amacı personel kaydı yapıp, personel izin kullandığında, kalan izin gün sayısını kontrol edip, kalan izin 3'ün altında ise ortama olay fırlatmak. Şimdi kodumuzda ne yaptık bakalım :   
+1- Öncelikle PersonelLibrary isimli kütüphanemizi tanımladık ve içerisinde Personel isminde sınıf tanımlaması gerçekleştirdik.  
 2- IzinKontrolHandler adında delegemizi tanımladık.   
 3- IzinEvent adında olayımızı tanımladık. Bir olay fırlatıldığında, bir methodun tetiklenmesi için o olayın o methodu işaret etmesi gerekir. İşaret etme işini ise delegemiz yapacaktır. 
 ``` c#
