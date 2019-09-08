@@ -179,7 +179,14 @@ namespace EvetAndDelegates
     }
 }
 ```
-Personel sınıfına ait bir nesne oluşturulduktan sonra; IzinEvent adlı olayımız += operatörü ile yüklenmiştir. operatörden sonra ise olay methodumuz bağlanmıştır. Görüldüğü üzere tetiklenecek methodumuz IzinUyariVer isimli methodumuzdur.
+Personel sınıfına ait bir nesne oluşturulduktan sonra; IzinEvent adlı olayımız += operatörü ile yüklenmiştir. operatörden sonra ise olay methodumuz bağlanmıştır. Görüldüğü üzere tetiklenecek methodumuz IzinUyariVer isimli methodumuzdur.  
+Uygulamayı çalıştıralım:   
+![cikti](/images/cikti.png)  
+  
+  görüldüğü gibi izin sayısı 3',n altına düştüğünde Event fırlatılmış ve tetiklediğimiz method çalışarak "İzniniz Azaldı" yazdırmıştır.
+  
+  Görüşmek üzere , Sağlıcakla 
+
 
 
 
