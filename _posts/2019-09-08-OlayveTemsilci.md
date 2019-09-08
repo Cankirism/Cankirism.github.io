@@ -41,7 +41,7 @@ private delegate int DelegateHandler();
 
 ```  
 Örnek uygulama kaynak kodlarında da görüldüğü üzere, delegemizle aynı parametre alan ve aynı dönüş tipi alan methodumuzu bağlıyoruz. Farklı dönüş tipi olan bir methodu bağlayamayacaktık. Yukarıdaki kodda şu düzenlemeyi yapsak;  
-```
+``` c#
   static void Main(string[] args)
         {
             ToplamHandler handler = new ToplamHandler(Carp); // Tip dönüş hatası verecektir.
@@ -55,7 +55,7 @@ static string Carp(int x, int y)
 ```  
 kodumıza string dönüş tipinde mothod ekleyip onu delegemize bağlamaya çalışırsak "Ger. dönüş Tipi" hatası alacağız. Çünkü delegemiz int dönüş tipi method beklerken biz string dönüş tipi olan method bağlamaya çalıştık.   
 Aşağıdaki bir durumda  bir durumda nasıl aksiyon alırdık ? 
-```
+``` c#
  static void Main(string[] args)
         {
             ToplamHandler handler = new ToplamHandler(Topla);
@@ -81,6 +81,104 @@ Aklımıza ilk gelen örnekler kontrol durumları olacaktır. Mesela stoktaki bi
 2- Ortama fırlatılması (Koşul tanımı)  
 
 Yani bir olay tanımlayacağız ve bu olayı ortama fırlatacağız. Olayı tetikleyip, bu tetikleme sonucu çalışacak methodu ise temsilcimiz ile işaret edeceğiz. Bunu örnek uygulama ile daha anlaşılır yapalım.  
+``` C#
+
+ public class Personel
+    {
+
+        public delegate void IzinKontrolHandler();
+        public event IzinKontrolHandler IzinEvent;
+
+        private long _tcNo;
+        private string _sicilNo;
+        private byte _izinSayisi;
+        public string Adi { get; set; }
+        public long TcNo
+        {
+            get { return _tcNo; }
+            set { _tcNo = value; }
+        }
+        public string SicilNo
+        {
+            get { return _sicilNo; }
+            set { _sicilNo = value; }
+        }
+
+        public byte IzinSayisi
+        {
+            get
+            {
+                return _izinSayisi;
+            }
+
+            set
+            {
+                _izinSayisi = value;
+                if (value < 3 && IzinEvent != null)
+                { IzinEvent(); }
+            }
+        }
+
+        public Personel(string adi, long tcNo, string sicilNo, byte izinSayisi)
+        {
+            Adi = adi;
+            TcNo = tcNo;
+            SicilNo = sicilNo;
+            IzinSayisi = izinSayisi;
+        }
+    }
+```
+Uygulamamızın amacı personel kaydı yapıp, personel izin kullandığında, kalan izin gün sayısını kontrol edip, kalan izin 3'ün altında ise ortama olay fıtlatmak. Şimdi kodumuzda ne yaptık bakalım :   
+1- Öncelikle PersonelLibrary isimli kütüphanemizi tanımlaıdk ve içerisinde Personel isminde sınıf tanımlaması gerçekleştirdik.  
+2- IzinKontrolHandler adında delegemizi tanımladık.   
+3- IzinEvent adında olayımızı tanımladık. Bir olay fırlatıldığında, br methodun tetiklenmesi için o olayın o methodu işaret etmesi gerekir. İşaret etme işini ise delegemiz yapacaktır. 
+```C#
+  public event IzinKontrolHandler IzinEvent;
+```
+Böylece olayımızı tanımlayıp, methodları işaret edecek temsilcimizi belirtmiş olduk. Şimdi sıra geldi ilgili methodu nasıl tetikleyeceğiz ? Aşaüıda görüldüğü üzere, bu tetikleme için IzinSayisi isimli Property'nin(özellik) set bloğu kullanılmıştır.
+izin sayısı 3'ün altındaysa olayı fırlat. IzinEvent olayının null olmaması , += oparatörü ile yüklendiği anlamına gelir.
+```C#
+ set
+            {
+                _izinSayisi = value;
+                if (value < 3 && IzinEvent != null)
+                { IzinEvent(); }
+            }
+```
+Şimdi gelelim bir methodu bağlamaya. Yani += parametresi kullanılarak olayımız fırlatıldığında tetiklenecek methodu yüklememiz gerekecek. Bunun için yeni bir uygulama oluşturup, PersonelLibrary dll'imizi referans olarak ekledik.  
+
+```C#
+
+using System;
+using PersonelLibrary;
+
+namespace EvetAndDelegates
+{
+    class Program
+    
+        static void Main(string[] args)
+        {
+            Personel personel = new Personel("Ali ÇAM", 11111111111, "MM123789", 20);
+            personel.IzinEvent += new IzinKontrolHandler(IzinUyariVer);
+            
+            for (int a = 0; a < 5; a++)
+            {
+                Console.WriteLine("{0} Personeli kaç gün izin kullanacak ? ", personel.Adi);
+                byte izin = Convert.ToByte(Console.ReadLine());
+                personel.IzinSayisi -= izin;
+                Console.WriteLine("Kalan İzin Sayısı:{0}", personel.IzinSayisi);
+            }
+            
+            Console.ReadLine();    
+        }
+
+        static void IzinUyariVer()
+        {
+            Console.WriteLine("izniniz azaldı");
+        }
+    }
+}
+```
 
 
     
