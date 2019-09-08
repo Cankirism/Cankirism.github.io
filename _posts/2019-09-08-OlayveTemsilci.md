@@ -179,6 +179,8 @@ namespace EvetAndDelegates
     }
 }
 ```
+Personel sınıfına ait bir nesne oluşturulduktan sonra; IzinEvent adlı olayımız += operatörü ile yüklenmiştir. operatörden sonra ise olay methodumuz bağlanmıştır. Görüldüğü üzere tetiklenecek methodumuz IzinUyariVer isimli methodumuzdur.
+
 
 
     
