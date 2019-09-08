@@ -22,7 +22,7 @@ private delegate int DelegateHandler();
   ### Örnek Uygulama ###
   Bu örnek uygulama, toplama işlemi yapan bir method tanımlayıp, onun bir temsilci ile nasıl kullandığını göstermektedir. 
   
- ```ornek 
+ ```C#
  class Program
     {
       
