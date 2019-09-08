@@ -6,7 +6,7 @@ title: Event(Olay) ve Delegate(Temsilci) Kullanımına Genel Bakış.
 Bu yazımızda C# dili ile olay ve temsilci yönetimini ve kullanımını irdeleyeceğiz.  
 ## Temsilciler(Delegates) ##  
 Adından da anlaşıldığı üzere temsil eden, işaret eden anlamına gelmektedir.Methodların adresini tutan, onları işaretleyen yapılardır.Temsilciler referans tiplidir. Dolayısıyla onlardan da nesne oluşturulabiliriz. Fazla zaman kaybetmeden örnek uygulama ile kullanımına geçelim.  
-Öncelikle bir tesmcilsi yapısı nasıl olur ona bakalım:    
+Öncelikle bir temscilci yapısı nasıl olur ona bakalım:    
 ``` c#
 private delegate int DelegateHandler(); 
 ``` 
@@ -17,7 +17,7 @@ private delegate int DelegateHandler();
  
  ```
  
-  ## Örnek Uygulama ##
+  ### Örnek Uygulama ###  
   Bu örnek uygulama, toplama işlemi yapan bir method tanımlayıp, onun bir temsilci ile nasıl kullandığını göstermektedir. 
   
  ``` c#
@@ -128,12 +128,12 @@ Yani bir olay tanımlayacağız ve bu olayı ortama fırlatacağız. Olayı teti
 Uygulamamızın amacı personel kaydı yapıp, personel izin kullandığında, kalan izin gün sayısını kontrol edip, kalan izin 3'ün altında ise ortama olay fıtlatmak. Şimdi kodumuzda ne yaptık bakalım :   
 1- Öncelikle PersonelLibrary isimli kütüphanemizi tanımlaıdk ve içerisinde Personel isminde sınıf tanımlaması gerçekleştirdik.  
 2- IzinKontrolHandler adında delegemizi tanımladık.   
-3- IzinEvent adında olayımızı tanımladık. Bir olay fırlatıldığında, br methodun tetiklenmesi için o olayın o methodu işaret etmesi gerekir. İşaret etme işini ise delegemiz yapacaktır. 
+3- IzinEvent adında olayımızı tanımladık. Bir olay fırlatıldığında, bir methodun tetiklenmesi için o olayın o methodu işaret etmesi gerekir. İşaret etme işini ise delegemiz yapacaktır. 
 ``` c#
   public event IzinKontrolHandler IzinEvent;
 ```
 Böylece olayımızı tanımlayıp, methodları işaret edecek temsilcimizi belirtmiş olduk. Şimdi sıra geldi ilgili methodu nasıl tetikleyeceğiz ? Aşağıda görüldüğü üzere, bu tetikleme için IzinSayisi isimli Property'nin(özellik) set bloğu kullanılmıştır.
-izin sayısı 3'ün altındaysa olayı fırlat. IzinEvent olayının null olmaması , += oparatörü ile yüklendiği anlamına gelir.
+izin sayısı 3'ün altındaysa olayı fırlat. IzinEvent olayının null olmaması , += operatörü ile yüklendiği anlamına gelir.
 ``` c#
  set
             {
@@ -149,7 +149,7 @@ izin sayısı 3'ün altındaysa olayı fırlat. IzinEvent olayının null olmama
 using System;
 using PersonelLibrary;
 
-namespace EvetAndDelegates
+namespace EventAndDelegates
 {
     class Program
     
@@ -178,7 +178,7 @@ namespace EvetAndDelegates
 ```
 Personel sınıfına ait bir nesne oluşturulduktan sonra; IzinEvent adlı olayımız += operatörü ile yüklenmiştir. operatörden sonra ise olay methodumuz bağlanmıştır. Görüldüğü üzere tetiklenecek methodumuz IzinUyariVer isimli methodumuzdur. Uygulamayı çalıştıralım:   
 ![cikti](/images/cikti.png)  
-görüldüğü gibi izin sayısı 3',n altına düştüğünde Event fırlatılmış ve tetiklediğimiz method çalışarak "İzniniz Azaldı" yazdırmıştır.
+görüldüğü gibi izin sayısı 3'ün altına düştüğünde Event fırlatılmış ve tetiklediğimiz method çalışarak "İzniniz Azaldı" yazdırmıştır.
   
   Görüşmek üzere , Sağlıcakla 
 
