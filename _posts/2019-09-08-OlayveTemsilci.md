@@ -76,9 +76,13 @@ Aşağıdaki bir durumda  bir durumda nasıl aksiyon alırdık ?
 Tahmin edeceğiniz gibi, uygulama ilk olarak ekrana 7 , ardından ise 12 çıktısını basacaktır. Çünkü ilk olarak topla methodunu bağlayıp, sonra ise += Carp ifadesi ile artık delegemizi Carp methoduna bağlamış olduk. -= Carp ifadesi ile de  delegemizin bu methoda bağlanmasını  iptal edebiliriz.  
 ## Event (Olay) ## 
 Sıklıkla gui programlamada karşılaştığımız yapılardır olaylar. fareye sağ tıkladık, fareye çift tıkladık vb. gibi olay örnekleri verebiliriz.Oysaki sadece gui tarafında kullanmıyoruz olayları. Yani her şey bir butona tıklanması ya da fareye sağ tık yapılması gibi olmayabilir. Yeri gelir olayları kendimiz tanımlar ve fırlatırız.  
-Aklımıza ilk gelen örnekler kontrol durumları olacaktır. Mesela stoktaki bir ürünün stok durumu kontrolü, bir personelin izin durum kontrolü vb. gibi. Bir olayın tanımlanması için iki mühim husus vardır : 
- -- 1- Bir temsilci ile eşleştirilmesi ,
-    2- Ortama fırlatılması (Koşul tanımı)
+Aklımıza ilk gelen örnekler kontrol durumları olacaktır. Mesela stoktaki bir ürünün stok durumu kontrolü, bir personelin izin durum kontrolü vb. gibi. Bir olayın tanımlanması için iki mühim husus vardır :     
+1- Bir temsilci ile eşleştirilmesi ,   
+2- Ortama fırlatılması (Koşul tanımı)  
+
+Yani bir olay tanımlayacağız ve bu olayı ortama fırlatacağız. Olayı tetikleyip, bu tetikleme sonucu çalışacak methodu ise temsilcimiz ile işaret edeceğiz. Bunu örnek uygulama ile daha anlaşılır yapalım.  
+
+
     
 
 
