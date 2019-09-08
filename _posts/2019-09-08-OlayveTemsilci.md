@@ -1,6 +1,6 @@
 ---
 layout: post
-title: C# Event(Olay) ve Delegate(Temsilci) Kullanımına Genel Bakış
+title: Event(Olay) ve Delegate(Temsilci) Kullanımına Genel Bakış.
 ---  
 
 Bu yazımızda C# dili ile olay ve temsilci yönetimini ve kullanımını irdeleyeceğiz.  
