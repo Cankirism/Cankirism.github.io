@@ -10,15 +10,14 @@ Adından da anlaşıldığı üzere temsil eden, işaret eden anlamına gelmekte
 ``` c#
 private delegate int DelegateHandler(); 
 ``` 
- inceleyecek olursa erişim belirleyicimiz -delegate sözcüğü(keyword) - method dönüş tip, temsici adımız.  
- Dikkat edilecek önemli hususlardan birisi; temsilcimiz bir methodu işaret ettiği için, o methoda imzası benzemelidir. Yani dönüş tipi , aldığı parametreler aynı olmalıdır.  Temsilci adının sonuna - Handler- konması gerekmekz ama yazılım kültüründe böyle kullanılması tercih edilmektedir.    
- ```C#
+ inceleyecek olursak, erişim belirleyicimiz -delegate sözcüğü(keyword) - method dönüş tipi, temsilci adımız.Dikkat edilecek önemli hususlardan birisi; temsilcimiz bir methodu işaret ettiği için, o methoda imzası benzemelidir. Yani dönüş tipi , aldığı parametreler aynı olmalıdır. Temsilci adının sonuna - Handler- konması gerekmez ama yazılım kültüründe böyle kullanılması tercih edilmektedir.    
+ ``` c#
  public delegate void DelegateHandler(); // geriye değer döndürmeyen ve parametre almayan method için kullanılır
  public delegate int DelegateHandler(int a, int b); // Geriye int tipinde değer döndüren ve 2 adet parametre alan method için kullanılır.
  
  ```
  
-  ### Örnek Uygulama ###
+  ## Örnek Uygulama ##
   Bu örnek uygulama, toplama işlemi yapan bir method tanımlayıp, onun bir temsilci ile nasıl kullandığını göstermektedir. 
   
  ``` c#
@@ -52,8 +51,7 @@ static string Carp(int x, int y)
             return "text";
         }
 ```  
-kodumıza string dönüş tipinde mothod ekleyip onu delegemize bağlamaya çalışırsak "Ger. dönüş Tipi" hatası alacağız. Çünkü delegemiz int dönüş tipi method beklerken biz string dönüş tipi olan method bağlamaya çalıştık.   
-Aşağıdaki bir durumda  bir durumda nasıl aksiyon alırdık ? 
+kodumuza string dönüş tipinde method ekleyip, onu delegemize bağlamaya çalışırsak "Geri dönüş Tipi" hatası alacağız. Çünkü delegemiz int dönüş tipi method beklerken biz string dönüş tipi olan method bağlamaya çalıştık.Aşağıdaki bir durumda  bir durumda nasıl aksiyon alırdık ? 
 ``` c#
  static void Main(string[] args)
         {
@@ -74,13 +72,13 @@ Aşağıdaki bir durumda  bir durumda nasıl aksiyon alırdık ?
 ```  
 Tahmin edeceğiniz gibi, uygulama ilk olarak ekrana 7 , ardından ise 12 çıktısını basacaktır. Çünkü ilk olarak topla methodunu bağlayıp, sonra ise += Carp ifadesi ile artık delegemizi Carp methoduna bağlamış olduk. -= Carp ifadesi ile de  delegemizin bu methoda bağlanmasını  iptal edebiliriz.  
 ## Event (Olay) ## 
-Sıklıkla gui programlamada karşılaştığımız yapılardır olaylar. fareye sağ tıkladık, fareye çift tıkladık vb. gibi olay örnekleri verebiliriz.Oysaki sadece gui tarafında kullanmıyoruz olayları. Yani her şey bir butona tıklanması ya da fareye sağ tık yapılması gibi olmayabilir. Yeri gelir olayları kendimiz tanımlar ve fırlatırız.  
+Sıklıkla gui programlamada karşılaştığımız yapılardır olaylar. fareye sağ tıkladık, fareye çift tıkladık vb. gibi olay örnekleri verebiliriz; fakat sadece gui tarafında kullanmıyoruz olayları. Yani her şey bir butona tıklanması ya da fareye sağ tık yapılması gibi olmayabilir. Yeri gelir olayları kendimiz tanımlar ve fırlatırız.  
 Aklımıza ilk gelen örnekler kontrol durumları olacaktır. Mesela stoktaki bir ürünün stok durumu kontrolü, bir personelin izin durum kontrolü vb. gibi. Bir olayın tanımlanması için iki mühim husus vardır :     
 1- Bir temsilci ile eşleştirilmesi ,   
 2- Ortama fırlatılması (Koşul tanımı)  
 
 Yani bir olay tanımlayacağız ve bu olayı ortama fırlatacağız. Olayı tetikleyip, bu tetikleme sonucu çalışacak methodu ise temsilcimiz ile işaret edeceğiz. Bunu örnek uygulama ile daha anlaşılır yapalım.  
-``` C#
+``` c#
 
  public class Personel
     {
@@ -131,12 +129,12 @@ Uygulamamızın amacı personel kaydı yapıp, personel izin kullandığında, k
 1- Öncelikle PersonelLibrary isimli kütüphanemizi tanımlaıdk ve içerisinde Personel isminde sınıf tanımlaması gerçekleştirdik.  
 2- IzinKontrolHandler adında delegemizi tanımladık.   
 3- IzinEvent adında olayımızı tanımladık. Bir olay fırlatıldığında, br methodun tetiklenmesi için o olayın o methodu işaret etmesi gerekir. İşaret etme işini ise delegemiz yapacaktır. 
-```C#
+``` c#
   public event IzinKontrolHandler IzinEvent;
 ```
-Böylece olayımızı tanımlayıp, methodları işaret edecek temsilcimizi belirtmiş olduk. Şimdi sıra geldi ilgili methodu nasıl tetikleyeceğiz ? Aşaüıda görüldüğü üzere, bu tetikleme için IzinSayisi isimli Property'nin(özellik) set bloğu kullanılmıştır.
+Böylece olayımızı tanımlayıp, methodları işaret edecek temsilcimizi belirtmiş olduk. Şimdi sıra geldi ilgili methodu nasıl tetikleyeceğiz ? Aşağıda görüldüğü üzere, bu tetikleme için IzinSayisi isimli Property'nin(özellik) set bloğu kullanılmıştır.
 izin sayısı 3'ün altındaysa olayı fırlat. IzinEvent olayının null olmaması , += oparatörü ile yüklendiği anlamına gelir.
-```C#
+``` c#
  set
             {
                 _izinSayisi = value;
@@ -146,7 +144,7 @@ izin sayısı 3'ün altındaysa olayı fırlat. IzinEvent olayının null olmama
 ```
 Şimdi gelelim bir methodu bağlamaya. Yani += parametresi kullanılarak olayımız fırlatıldığında tetiklenecek methodu yüklememiz gerekecek. Bunun için yeni bir uygulama oluşturup, PersonelLibrary dll'imizi referans olarak ekledik.  
 
-```C#
+``` c#
 
 using System;
 using PersonelLibrary;
@@ -178,11 +176,9 @@ namespace EvetAndDelegates
     }
 }
 ```
-Personel sınıfına ait bir nesne oluşturulduktan sonra; IzinEvent adlı olayımız += operatörü ile yüklenmiştir. operatörden sonra ise olay methodumuz bağlanmıştır. Görüldüğü üzere tetiklenecek methodumuz IzinUyariVer isimli methodumuzdur.  
-Uygulamayı çalıştıralım:   
+Personel sınıfına ait bir nesne oluşturulduktan sonra; IzinEvent adlı olayımız += operatörü ile yüklenmiştir. operatörden sonra ise olay methodumuz bağlanmıştır. Görüldüğü üzere tetiklenecek methodumuz IzinUyariVer isimli methodumuzdur. Uygulamayı çalıştıralım:   
 ![cikti](/images/cikti.png)  
-  
-  görüldüğü gibi izin sayısı 3',n altına düştüğünde Event fırlatılmış ve tetiklediğimiz method çalışarak "İzniniz Azaldı" yazdırmıştır.
+görüldüğü gibi izin sayısı 3',n altına düştüğünde Event fırlatılmış ve tetiklediğimiz method çalışarak "İzniniz Azaldı" yazdırmıştır.
   
   Görüşmek üzere , Sağlıcakla 
 
