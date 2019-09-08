@@ -16,8 +16,9 @@ private delegate int DelegateHandler();
  public delegate int DelegateHandler(int a, int b); // Geriye int tipinde değer döndüren ve 2 adet parametre alan method için kullanılır.
  
  ```  
- ## Örnek Uygulama ##
-  Bu örnek uygulama, toplama işlemi yapan bir method tanımlayıp, onun bir temsilci ile nasıl kullandığını göstermektedir. 
+ 
+ ## Örnek Uygulama ##  
+ Bu örnek uygulama, toplama işlemi yapan bir method tanımlayıp, onun bir temsilci ile nasıl kullandığını göstermektedir. 
   
  ``` c#
  class Program
