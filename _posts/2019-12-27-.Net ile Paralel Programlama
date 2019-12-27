@@ -1,1 +1,166 @@
+---
+layout: post
+title: Düzenli İfadeler (Regular Expressions)
+---  
+
+## Paralel Programlama ##  
+
+Bu yazımızda da paralel işlemlerin alt yapısını oluşturan Task Parallel Library (TLP) konusunu incelemeye çalışacağız. Paralel programlama konusuna çok detaylı giriş yapmayacağız.
+Teorik olarak, işlerin farklı iş parçacıklarına bölünerek, threadler arasında paylaştırılmasıdır. Böylece daha hızlı sürede çıktı üretme hedeflenir. Ama düzgün yönetilemeyen   
+paralel programlama hedeflenenin aksine, uygulamanın daha kötü performans vermesine sebebiyet verebilir.  
+
+Hatta öyle an olur ki, sıralı yöntemlerde elde ettiğiniz çıktı, doğru yönetilemeyen paralel programlanan uygulama çıktısıyla farklı olabilir.  
+
+ .NET dilinden konuşursak, çok kanallı programlar (Multiple threads), parallel tasks, background worker v.b. yapılar   
+ ile çoğu programcının bir şekilde aşina olduğu yapılardır.  Lock objects ler, autoreset, manual reset eventler, mutexler, semaphore lar v.b. yapılar da işin içine girince, paralel programlama biraz yorucu hal alabilmektedir.
+ 
+ ## TPL ## 
+TPL kavramını .Net Framework 4.0 ile tanımaya başlıyoruz. Bu yapı, işlemlerin paralel bir şekilde yürütülmesini sağlamak amacıyla oluşturulmuştur. TLP’ye ait tipler System.Threading ve System.Threading.Tasks isim alanında bulunmaktadır.
+
+TLP altyapısı aslında süreçlere, görev olarak bakar , TPL ile;  
+
+
+- Yeni görevler oluşturmak, bu görevleri başlatmak, duraklatmak ve sonlandırmak mümkündür.  
+- Bir görevin bittiği yerden başka bir görevi başlatmak mümkündür.  
+
+- Başarıyla yerine getirilen görevlerin sonucunda değerler döndürmek mümkündür.  
+
+- Bir görev kendi içinde alt görevler başlatabilir.  
+
+- Görevler aynı veya farklı thread’ler tarafından yerine getirilebilirler.  
+
+## Senaryo ##
+Öğrenci Veritabanından, öğrenci tablosundan öğrenci verilerini alarak, her bir öğrenci için pdf formatında özet raporu oluşturan uygulamayı  
+hem klasik yöntem hem de paralel yöntem ile geliştirilmesi.  
+Öncelikle hızlı anlatım olması bakımından öğrenci isminde liste tanımlayıp, random olarak kayıt oluşturarak, oluşturulan öğrenci bilgilerini pdf özet rapo haline getireceğiz. 
+
+``` c#
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Ogrenci> ogrenciListesi = Helper.OgrenciOlustur(100);
+            Stopwatch watcher = new Stopwatch();
+            watcher.Start();
+            SeriOlustur(ogrenciListesi);
+            watcher.Stop();
+            Console.WriteLine("Seri  hesaplama geçen süre {0}",watcher.ElapsedMilliseconds);
+            //paralel
+            watcher.Restart();
+            ParalelOlustur(ogrenciListesi);
+            watcher.Stop();
+            Console.WriteLine("Paralel hesaplama geçen süre {0}",watcher.ElapsedMilliseconds);
+            Console.ReadKey();
+
+        }
+
+        static void SeriOlustur(List<Ogrenci> ogrenciler)
+        {
+            foreach (var ogrenci in ogrenciler)
+            {
+                CreatePdf(ogrenci);
+            }
+        }
+
+        static void ParalelOlustur(List<Ogrenci> ogrenciler)
+        {
+         
+            Parallel.ForEach(ogrenciler, o => CreatePdf(o));
+        
+        }
+
+        static void CreatePdf(Ogrenci ogrenci)
+        {   
+            //Döküman oluşturma
+            PdfDocument document = new PdfDocument();
+            document.Info.Title = "Öğrenci Durum Belgesi";
+            //dökümana sayfa ekleme
+            PdfPage page = document.AddPage();
+            page.Size = PageSize.A4;
+            page.Orientation = PdfSharp.PageOrientation.Landscape;
+            string icerik = "Ogrenci Adı =" + ogrenci.Adi + System.Environment.NewLine + "Öğrenci NO=" + ogrenci.OgrenciNo + System.Environment.NewLine + "Bölümü=" + ogrenci.Bolumu;
+            XGraphics xGraphics = XGraphics.FromPdfPage(page);
+
+            //Font oluşturma
+            XFont font = new XFont("Arial", 12, XFontStyle.Regular);
+            PdfSharp.Drawing.Layout.XTextFormatter tformatter = new PdfSharp.Drawing.Layout.XTextFormatter(xGraphics);
+            XRect rect = new XRect(20, 20, 400, 170); //yazılacak alan koordinatları
+
+
+            xGraphics.DrawRectangle(XBrushes.SeaShell, rect);
+            tformatter.DrawString(icerik, font, XBrushes.Black, rect, XStringFormats.TopLeft);
+            xGraphics.Dispose();
+           
+            document.Save($"{ogrenci.OgrenciNo}.pdf");
+            document.Dispose();
+
+        }
+    }
+
+  struct Ogrenci
+    {
+
+        public string Adi { get; set; }
+        public  long OgrenciNo { get; set; }
+        public string Bolumu { get; set; }
+
+    }
+
+    static class Helper
+    {
+
+        public static List<Ogrenci> OgrenciOlustur(int ogrenciSayisi)
+        {
+            Random rd = new Random();
+            List<Ogrenci> ogrenciListesi = new List<Ogrenci>();
+            string[] bolumler = new string[3] { "Bilgisayar Mühendisliği", "Kimya", "Tıp" };
+
+            for (int i = 0; i < 100; i++)
+            {
+                Ogrenci ogrenci = new Ogrenci();
+                ogrenci.Adi = $"Ogrenci{i}";
+                ogrenci.OgrenciNo = i * 3;
+                ogrenci.Bolumu = bolumler[rd.Next(0, 3)];
+                ogrenciListesi.Add(ogrenci);
+
+            }
+            return ogrenciListesi;
+           
+
+        }
+    }
+}
+
+
+```  
+Yukarıda yer alan örnek uygulamamızda, main metodu içerisinde, statik olarak tanımladığımız Helper sınıfından faydalanarak , öğrenci listemizi hazırladık.  
+System.Diagnostic isim uzayından Stopwatch sınıfından türetilen watcher nesnesi ile, process'in başlangıcı ile bitişi arasında geçen süreyi hesapladık.  
+ Akabinde  klasik yöntemle foreach döngüsüne soktuk.  
+ ``` c#
+  static void SeriOlustur(List<Ogrenci> ogrenciler)
+        {
+            foreach (var ogrenci in ogrenciler)
+            {
+                CreatePdf(ogrenci);
+            }
+        }
+ ```
+ daha sonra , watcher nesne değerini resetledik ve akabinde paralel hesaplama yapan metodumuzu çağırdık.  
+ ``` C#
+  static void ParalelOlustur(List<Ogrenci> ogrenciler)
+        {
+         
+            Parallel.ForEach(ogrenciler, o => CreatePdf(o));
+        
+        }
+ ```
+ 
+CreatePDF() methodu ile PDF döküman oluşturma işlemini gerçekleştirdik.  
+Uygulama çıktısı :   
+
+ 
+
 
