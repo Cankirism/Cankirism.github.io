@@ -5,7 +5,7 @@ title: Ajax ile DataTables eklentisini GET yöntemiyle veri yükleme
 ## DataTables Nedir ? ##
 Web uygulamalarında, veri gösteriminde kullanabileceğiniz  önemli bir JQuery eklentisidir.  
 Genelde tablo ağırlıklı uygulamalarda tercih ettiğimiz bir eklenti olan DataTables yeri geldiğinde işimizi çok kolaylaştırmıştır.  
-## Ajax ile DataTables veri doldurma ##
+## Ajax ile DataTables veri yükleme ##
 Yazacağımız Script kodu ile DataTables eklentimizi GET yöntemiyle alınan veriler ile dolduracağız.  
 
 ```javascript 
