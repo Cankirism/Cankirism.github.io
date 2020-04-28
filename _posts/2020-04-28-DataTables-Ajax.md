@@ -44,7 +44,7 @@ Yazacağımız Script kodu ile DataTables eklentimizi GET yöntemiyle alınan ve
     
     tablomuza ait Html kodu ise şu şekilde olmalıdır :  
     
-    ```Html 
+    ```javascript
      <table id="myTable" class="display" >
                    
                         <thead>
