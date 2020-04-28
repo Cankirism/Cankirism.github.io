@@ -44,42 +44,42 @@ Yazacağımız Script kodu ile DataTables eklentimizi GET yöntemiyle alınan ve
     
     tablomuza ait Html kodu ise şu şekilde olmalıdır :  
     
+    ``` Html 
+              <table id="myTable" class="display" width="100%">
+
+                    <thead>
+                        <tr>
+                            <th>Adı</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>Durum Kodu</th>
+                            <th>Durumu</th>
+                            <th>Son Bağlantı</th>
+                            <th>Oluşturulma Tarihi</th>
+                            <th>Son Parola Değiştirme</th>
+                            <th>Yetki</th>
+
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Adı</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>Durum Kodu</th>
+                            <th>Durumu</th>
+                            <th>Son Bağlantı</th>
+                            <th>Oluşturulma Tarihi</th>
+                            <th>Son Parola Değiştirme</th>
+                            <th>Yetki</th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody></tbody>
+
+               </table>
     
-     <table id="myTable" class="display" >
-                   
-                        <thead>
-                            <tr>
-                                <th>Adı</th>
-                                <th>Kullanıcı Adı</th>
-                                <th>Durum Kodu</th>
-                                <th>Durumu</th>
-                                <th>Son Bağlantı</th>
-                                <th>Oluşturulma Tarihi</th>
-                                <th>Son Parola Değiştirme</th>
-                                <th>Yetki</th>
-                              
-
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>Adı</th>
-                                <th>Kullanıcı Adı</th>
-                                <th>Durum Kodu</th>
-                                <th>Durumu</th>
-                                <th>Son Bağlantı</th>
-                                <th>Oluşturulma Tarihi</th>
-                                <th>Son Parola Değiştirme</th>
-                                <th>Yetki</th>
-                               
-                            </tr>
-                        </tfoot>
-                    <tbody>
-
-
-                    </tbody>
-                      
-                    </table>
+    ```
+    
     
     
     
