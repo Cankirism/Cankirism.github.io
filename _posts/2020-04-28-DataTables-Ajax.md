@@ -8,7 +8,7 @@ Genelde tablo ağırlıklı uygulamalarda tercih ettiğimiz bir eklenti olan Dat
 ## Ajax ile DataTables veri yükleme ##
 Yazacağımız Script kodu ile DataTables eklentimizi GET yöntemiyle alınan veriler ile dolduracağız.  
 
-```javascript 
+``` javascript 
  <script type="text/javascript">
         $(document).ready(function () {
             var table = $("#myTable tbody");
@@ -85,7 +85,7 @@ Yazacağımız Script kodu ile DataTables eklentimizi GET yöntemiyle alınan ve
 ## Sunucu Tarafı ##
 Arka yüzde yapılacak işlem çok daha kolaydır. Veriyi Json olarak döndürecek bir method yazmak yeterli olacaktır.  
 
-```c#
+``` c#
  public JsonResult GetAllUser()
         {
             
