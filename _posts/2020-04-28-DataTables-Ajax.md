@@ -44,7 +44,7 @@ Yazacağımız Script kodu ile DataTables eklentimizi GET yöntemiyle alınan ve
     
     tablomuza ait Html kodu ise şu şekilde olmalıdır :  
     
-    ```Javascript
+    ```Javascript 
      <table id="myTable" class="display" >
                    
                         <thead>
@@ -80,7 +80,10 @@ Yazacağımız Script kodu ile DataTables eklentimizi GET yöntemiyle alınan ve
                     </tbody>
                       
                     </table>
+    
+    
     ```
+    
 ## Sunucu Tarafı ##
 Arka yüzde yapılacak işlem çok daha kolaydır. Veriyi Json olarak döndürecek bir method yazmak yeterli olacaktır.  
 
