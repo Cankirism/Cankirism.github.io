@@ -115,7 +115,7 @@ Arka yüzde yapılacak işlem çok daha kolaydır. Veriyi Json olarak döndürec
 
 
  
- Hepsi bu kadar. Sağlıcakla kalın 
+
 
 
 
