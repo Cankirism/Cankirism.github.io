@@ -44,9 +44,8 @@ Yazacağımız Script kodu ile DataTables eklentimizi GET yöntemiyle alınan ve
     
     tablomuza ait Html kodu ise şu şekilde olmalıdır :  
     
-    ``` html 
-    
-      <table id="myTable" class="display" >
+    ```Html 
+     <table id="myTable" class="display" >
                    
                         <thead>
                             <tr>
@@ -81,13 +80,11 @@ Yazacağımız Script kodu ile DataTables eklentimizi GET yöntemiyle alınan ve
                     </tbody>
                       
                     </table>
-    
     ```
-
 ## Sunucu Tarafı ##
 Arka yüzde yapılacak işlem çok daha kolaydır. Veriyi Json olarak döndürecek bir method yazmak yeterli olacaktır.  
 
-``` c#
+``` c# 
  public JsonResult GetAllUser()
         {
             
@@ -110,10 +107,11 @@ Arka yüzde yapılacak işlem çok daha kolaydır. Veriyi Json olarak döndürec
 
     }
 
+
 ```
 
- 
 
+ 
  Hepsi bu kadar. Sağlıcakla kalın 
 
 
