@@ -38,13 +38,13 @@ Yazacağımız Script kodu ile DataTables eklentimizi GET yöntemiyle alınan ve
                           
     </script>
 
-
+```
 
    
     
     tablomuza ait Html kodu ise şu şekilde olmalıdır :  
     
-    ``` Html 
+    
               <table id="myTable" class="display" width="100%">
 
                     <thead>
@@ -78,7 +78,7 @@ Yazacağımız Script kodu ile DataTables eklentimizi GET yöntemiyle alınan ve
 
                </table>
     
-    ```
+    
     
     
     
