@@ -1,1 +1,19 @@
+---
+layout: post
+title: .Net Uygulamalarında Kod İncelemesi (Code-Review)- Gün:2
+--- 
 
+ Kurumumuz bünyesinde geliştirdiğimiz uygulamalardaki tecrübelerimiz ve ilgili uygulamalar üzerindeki best practise örneklerinin derlendiği .Net uygulamalarında  kod incelemeleri yazı serimize devam ediyoruz.  
+ 
+
+## İstisna Yönetimi ##
+.Net çatı yapısının kendine özgü istisnai durum tanımlamaları vardır. Örn:ArgumentException, ArgumentNullException, InvalidOperationException gibi  
+Uygulamalarımızda genelde bu ana istisna tanımlamalarını kullanmayı tercih ediyoruz.  
+
+## Özelleştirilmiş İstisna Yapılarını kullanma ## 
+Eğer kendi istnisna yapınızı oluşturacaksanız; Bu yapılarınızın detayını açık açık belirtin.  
+
+## Throw ile Throw Ex Farkı ##
+
+İstisna yönetimlerinde sıklıkla kullandığımız yapılardır. İstisna yakalandığı zaman (catch bloğu içerisinde) caller'a bir bilgilendirme göndermemiz gerekir.  
+Stack Trace yapısı içerisinde 
