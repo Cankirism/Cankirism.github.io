@@ -144,4 +144,7 @@ export default function ApiTitle(props) {
 }
 
 
+Başka yazılarda görüşmek üzere ...
+
+![tracer](/images/ss.gif)
 
