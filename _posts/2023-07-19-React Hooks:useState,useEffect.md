@@ -98,7 +98,7 @@ export default function ApiSample() {
   const [id, setId] = useState(1);
   const [title,setTitle]=useState("");
 ```
-Biz uygulamamızda id değeri değiştiğinde , api endpointe ilgili id'deki nesne için istek atmasını isteyeceğız. Bu sebeple id state her değiştiğinde, useEffect ile api'ye istek atan, getApi() fonksiyonunu tetikleyeceğiz.
+Biz uygulamamızda id değeri değiştiğinde , api endpointe ilgili id'deki nesne için istek atmasını isteyeceğız. Bu sebeple id state her değiştiğinde, useEffect ile api'ye istek atan, fetchApi() fonksiyonunu tetikleyeceğiz.
 ``` js
 useEffect(() => fetchApi(), [id]);
 ```
