@@ -109,7 +109,7 @@ function fetchApi() {
     const url="https://jsonplaceholder.typicode.com/photos?id="+id;
     fetch(url)
     .then(res=>res.json())
-    .then(result=>setTitle(result[0].title))
+    .then(result=>setTitle(result[0].title)) ==> dönen result title değerine göre title state değerini set ediyoruz.
 ```
 ``` js
  return (
