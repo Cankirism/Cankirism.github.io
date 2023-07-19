@@ -37,7 +37,7 @@ export default class Product extends Component {
 }
 ```
 
-useState yapısı bun tanımlamalar ile uğraşmadan çok kolay şekilde state tanımlamamızı sağlar.
+useState yapısı bu tanımlamalar ile uğraşmadan çok kolay şekilde state tanımlamamızı sağlar.
 react sayfasın örneği : 
 
 ``` js
