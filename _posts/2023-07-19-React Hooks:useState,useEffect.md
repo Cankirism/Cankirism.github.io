@@ -59,6 +59,29 @@ function Example() {
 ```
 örnekte görüldüğü gibi, useState() tanımı bir array dönmüş, ilk parametresi state'in adı, ikinci parametresi ile bu state'i manupule edeceğimiz fonksiyonun adı. Kültür olarak manupule edecek fonksyion  ==> setStateadi şeklinde camel case tanımlanır.Yukarıdaki örnekte button tıklandığında , setCount() fonksiyonu , counter değerini 1 artırarak counter state'ini yeniden set edecektir.
 
+## useEffect
+useEffect hook ile, bir componenet  render olduktan  ya da bir fonksyion çalıştıktan sonra  çalışacak fonksiyonu tanımlamamızı sağlayan yapıdır.
+
+``` js
+  useEffect(()=>{},[])  
+```
+şeklinde kullanılır. ilk parametre fonksiyon, 2. parametre ise dependecy belirtir. Yani hangi duruma ya da state değerine göre bir işlem tetiklenecekse o state belirtilir.
+
+ ``` js
+useEffect(()=>console.log("Merhaba"),[])
+```
+yukarıdaki örnek uygulama render edildiğinde 1 kez çalışmak suretiyle  console'a Merhaba basacaktır.
+
+ ``` js
+useEffect(()=>console.log("Merhaba"),[counter])
+```
+Bu örnek uygulama ise counter state'ine bağımlılık içermektedir. Yani counter değeri her değiştiğinde console'a merhaba basacaktır.
+
+şimdi detaylı inceleme yapacağımız örnek ile hooklarımızı kullanalım.
+
+``` js
+
+```
 
 
 
