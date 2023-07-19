@@ -146,5 +146,5 @@ export default function ApiTitle(props) {
 
 Başka yazılarda görüşmek üzere ...
 
-![tracer](/images/ss.gif)
+![trace1](/images/ss.gif)
 
