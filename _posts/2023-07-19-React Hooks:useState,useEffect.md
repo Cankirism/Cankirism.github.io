@@ -70,15 +70,15 @@ useEffect hook ile, bir componenent  render olduktan  ya da bir fonksyion çalı
  ``` js
 useEffect(()=>console.log("Merhaba"),[])
 ```
-yukarıdaki örnek uygulama render edildiğinde 1 kez çalışmak suretiyle  console'a Merhaba basacaktır.
+yukarıdaki örnek, component render edildiğinde 1 kez çalışmak suretiyle  konsola Merhaba basacaktır.
 
  ``` js
 useEffect(()=>console.log("Merhaba"),[counter])
 ```
-Bu örnek uygulama ise counter state'ine bağımlılık içermektedir. Yani counter değeri her değiştiğinde console'a merhaba basacaktır.
+Bu örnek uygulama ise counter state'ine bağımlılık içermektedir. Yani counter değeri her değiştiğinde konsola  "merhaba" basacaktır.
 
 şimdi detaylı inceleme yapacağımız örnek ile hooklarımızı kullanalım.
-senaryo : Bir api endpointen, id değerine göre ilgili nesneyi çeken, ,response içerisinde title değerine göre title state'ini set eden uygulama
+senaryo : Bir api endpointen, id değerine göre ilgili nesneyi çeken, response içerisinde title değerine göre, title state'ini set eden uygulama
 ApiSample.js
 ilgili componentleri import edelim :
 
