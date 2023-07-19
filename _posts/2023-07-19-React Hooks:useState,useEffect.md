@@ -80,8 +80,10 @@ Bu örnek uygulama ise counter state'ine bağımlılık içermektedir. Yani coun
 şimdi detaylı inceleme yapacağımız örnek ile hooklarımızı kullanalım.  
 
 senaryo : Bir api endpointen, id değerine göre ilgili nesneyi çeken, response içerisinde title değerine göre, title state'ini set eden uygulama
-ApiSample.js
-ilgili componentleri import edelim :
+ApiSample.js  
+
+ilgili componentleri import edelim :  
+
 
 ``` js
 import React, { useEffect, useState } from "react";
