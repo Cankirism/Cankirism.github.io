@@ -145,7 +145,7 @@ export default function ApiTitle(props) {
         </div>
   )
 }
-
+```
 
 Başka yazılarda görüşmek üzere ...
 
