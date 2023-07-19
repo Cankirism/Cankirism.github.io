@@ -1,4 +1,4 @@
-# Kitabın Ortasından: React Hooks - useState(), useEffect()
+
 
 Merhaba, uzun aradan sonra yeni blog yazımız ile yayındayız. Bugün React 16.8 ile hayatımıza giren React hooklarından useState ve useEffect ile çalışıyor olacağız.
 
