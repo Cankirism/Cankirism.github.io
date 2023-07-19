@@ -116,14 +116,14 @@ function fetchApi() {
      <div >
      <h5>{title}</h5>
        <button onClick={()=>setId(id+1)}>{id} Id'ye ait datayı fetch </button>
-       <ApiTitle  setTitle={setTitle} title={title}></ApiTitle> ==> props ile ilgili componente title state ile setTitle fonksyionu değerini geeçerek, o componenten bu state ve fonksiyona erişilmesini sağladık
+       <ApiTitle  setTitle={setTitle} title={title}></ApiTitle> 
      </div>
   );
 ```
 bu componente tanımlı statelere diğer  componenetlerden erişmek isteyebilir ya da onları değiştirmek isteyebiliriz. Bu durumda props yardımıyla ilgili state ve fonksiyonları ilgili componentlere göndeririz
 aşağıda görüldüğü üzere, ApiTitle Componentine setTitle ve title isimli props ile state ve fonksiyonu gönderdik.
 ``` js
- <ApiTitle  setTitle={setTitle} title={title}></ApiTitle>
+ <ApiTitle  setTitle={setTitle} title={title}></ApiTitle>==> props ile ilgili componente title state ile setTitle fonksyionu değerini geeçerek, o componenten bu state ve fonksiyona erişilmesini sağladık
 ```
 
 ApiTitle.js
