@@ -116,7 +116,7 @@ function fetchApi() {
      <div >
      <h5>{title}</h5>
        <button onClick={()=>setId(id+1)}>{id} Id'ye ait datayı fetch </button>
-       <ApiTitle  setTitle={setTitle} title={title}></ApiTitle>
+       <ApiTitle  setTitle={setTitle} title={title}></ApiTitle> ==> props ile ilgili componente title state ile setTitle fonksyionu değerini geeçerek, o componenten bu state ve fonksiyona erişilmesini sağladık
      </div>
   );
 ```
