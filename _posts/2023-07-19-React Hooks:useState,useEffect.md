@@ -77,7 +77,8 @@ useEffect(()=>console.log("Merhaba"),[counter])
 ```
 Bu örnek uygulama ise counter state'ine bağımlılık içermektedir. Yani counter değeri her değiştiğinde konsola  "merhaba" basacaktır.
 
-şimdi detaylı inceleme yapacağımız örnek ile hooklarımızı kullanalım.
+şimdi detaylı inceleme yapacağımız örnek ile hooklarımızı kullanalım.  
+
 senaryo : Bir api endpointen, id değerine göre ilgili nesneyi çeken, response içerisinde title değerine göre, title state'ini set eden uygulama
 ApiSample.js
 ilgili componentleri import edelim :
