@@ -97,12 +97,12 @@ export default function ApiSample() {
 ```
 Biz uygulamamızda id değeri değiştiğinde , api endpointe ilgili id'deki nesne için istek atmasını isteyeceğız. Bu sebeple id state her değiştiğinde, useEffect ile api'ye istek atan, getApi() fonksiyonunu tetikleyeceğiz.
 ``` js
-useEffect(() => Api(), [id]);
+useEffect(() => fetchApi(), [id]);
 ```
 şimdi api fetch edelim.
 
 ``` js
-function getApi() {
+function fetchApi() {
     const url="https://jsonplaceholder.typicode.com/photos?id="+id;
     fetch(url)
     .then(res=>res.json())
