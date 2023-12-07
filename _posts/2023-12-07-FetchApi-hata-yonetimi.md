@@ -64,7 +64,7 @@ Yukarıdaki kod bloğu, http status kodu 2xx olduğunda "status ok" yazacaktır.
 
 Peki Http Status 2xx dışındakileri de catch() bloğumuz yakalasın istersek nasıl bir senaryo oluşturmalıyız.
 ## Benim tek doğrum var, ondan gayrisi hatadır kardeşim
-... şeklinde sersenişte bulunanlar için şöyle bir senaryo var: Response.Ok olduğu durumların true, diğer tüm durumların( http status kodları ve cors,network errorlar dahil) hata olarak catch bloğunda yakalanacağı bir kod bloğu oluşturacağız.
+... şeklinde serzenişte bulunanlar için şöyle bir senaryo var: Response.Ok olduğu durumların true, diğer tüm durumların( http status kodları ve cors,network errorlar dahil) hata olarak catch bloğunda yakalanacağı bir kod bloğu oluşturacağız.
 ```js
  try {
     const response = await fetch("https://jsonplaceholder.typicode.com/todos");
