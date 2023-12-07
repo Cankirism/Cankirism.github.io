@@ -93,7 +93,7 @@ try {
   }
 
 ```
-Yukarıdaki kod bloğunda ise sunucu 404 döndüğünden, throw new Error kodu ile hata fırlatılmış ve catch() bloğunda yakalanmıştır.Çıktısı "Error: 404" oalcaktır. 
+Yukarıdaki kod bloğunda ise sunucu 404 döndüğünden, throw new Error kodu ile hata fırlatılmış ve catch() bloğunda yakalanmıştır.Çıktısı "Error: 404" olacaktır. 
 
 ```js
  try {
@@ -108,7 +108,8 @@ Yukarıdaki kod bloğunda ise sunucu 404 döndüğünden, throw new Error kodu i
   }
 
 ```
-Yukarıdaki kod örneğinde ise CORS error oluştuğu için catch() blopu devreye girmiş ve hata yakalanmıştır. çıktısı : TypeError: NetworkError when attempting to fetch resource
+Yukarıdaki kod örneğinde ise CORS error oluştuğu için catch() bloğu devreye girmiş ve hata yakalanmıştır. Çıktısı : TypeError: NetworkError when attempting to fetch resource  
+
 Bu yazımız da bu kadar. Sonraki yazımızda görüşmek üzere ... 
 
 
