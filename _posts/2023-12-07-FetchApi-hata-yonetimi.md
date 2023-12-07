@@ -3,9 +3,12 @@ layout: post
 title: Fetch Api işlemlerinde Hata Yönetimi  
 ---
 ## Fetch Api Nedir ? 
-Merhaba, bildiğiniz üzere sunucu tarafındaki kaynakların(resources) getirilmesini sağlayan arayüzdür.Ajax'tan farkı olarak promise tabanlı olması ve asenkron veri alışverişini desteklemesidir.
+Merhaba, bildiğiniz üzere FetchApi, sunucu tarafındaki kaynakların(resources) getirilmesini sağlayan arayüzdür.Ajax'tan farkı, promise tabanlı olması ve asenkron veri alışverişini desteklemesidir.
 ## Promise 
-Peki nedir bu promise ? Javascript'te asenkron programlama dediğimizde aklımıza 2  yöntem gelir. Biri Callback diğer ise promise. Callback , bir işlem bittiğinde çağrılır ve işlem sonucu bu foknsiyona aktarılır. Örneğin dosya okuma işlemi tamamlandığında tanımlı callback fonksiyonu çağrılır ve sonuc buna atanır. Callback ile birlikte fonksiyonların karmaşık hale gelmesi noktasında promise devreye girmiştir. 
+Peki nedir bu promise? Javascript'te asenkron programlama dediğimizde aklımıza 2 yöntem gelir.  
+Biri Callback diğer ise promise. Callback, bir işlem bittiğinde çağrılır ve işlem sonucu bu fonksiyona aktarılır.  
+Örneğin dosya okuma işlemi tamamlandığında tanımlı callback fonksiyonu çağrılır ve sonuç buna atanır.  
+Callback ile birlikte fonksiyonların karmaşık hale gelmesi noktasında promise devreye girmiştir.  
 Promise JS'de asenkron işlemler için kullanılan bir objecttir.Bir işlem tamamlandığında ya da başarısız olduğunda kullanılabilirler. İşlemlerin sıralı yürütülmesini kolaylaştırmaktadır.
 Promise'de 3 farklı durum vardır
 1- Resolved: İŞlem tamamlandığını belirtir. İstek tamamlandıysa resolved olmuştur.
