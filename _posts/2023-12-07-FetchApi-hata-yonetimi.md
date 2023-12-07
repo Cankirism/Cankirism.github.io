@@ -1,8 +1,7 @@
 ---
-layout:post
-title:Javascript Api isteklerinde Hata Yönetimi 
---- 
-
+layout: post
+title: Merhaba Dünya !
+---
 ## Fetch Api Nedir ? 
 Merhaba, bildiğiniz üzere sunucu tarafındaki kaynakların(resources) getirilmesini sağlayan arayüzdür.Ajax'tan farkı olarak promise tabanlı olması ve asenkron veri alışverişini desteklemesidir.
 ## Promise 
