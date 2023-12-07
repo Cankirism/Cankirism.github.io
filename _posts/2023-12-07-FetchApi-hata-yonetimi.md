@@ -110,7 +110,8 @@ Yukarıdaki kod bloğunda ise sunucu 404 döndüğünden, throw new Error kodu i
 ```
 Yukarıdaki kod örneğinde ise CORS error oluştuğu için catch() bloğu devreye girmiş ve hata yakalanmıştır. Çıktısı : TypeError: NetworkError when attempting to fetch resource  
 
-Bu yazımız da bu kadar. Sonraki yazımızda görüşmek üzere ... 
+Bu yazımız da bu kadar. Sonraki yazımızda görüşmek üzere ...   
+yazının raw hali: https://github.com/Cankirism/Cankirism.github.io/blob/master/_posts/2023-12-07-FetchApi-hata-yonetimi.md
 
 
 
