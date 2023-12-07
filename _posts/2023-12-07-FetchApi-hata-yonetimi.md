@@ -1,5 +1,5 @@
 ---
-layout: post
+layout:post
 title:Javascript Api isteklerinde Hata Yönetimi 
 --- 
 
