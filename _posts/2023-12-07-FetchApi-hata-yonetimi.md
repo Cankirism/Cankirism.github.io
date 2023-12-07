@@ -9,8 +9,8 @@ Peki nedir bu promise? Javascript'te asenkron programlama dediğimizde aklımız
 Callback, bir işlem bittiğinde çağrılır ve işlem sonucu bu fonksiyona aktarılır.Örneğin dosya okuma işlemi tamamlandığında tanımlı callback fonksiyonu çağrılır ve sonuç buna atanır.  
 Callback ile birlikte fonksiyonların karmaşık hale gelmesi noktasında promise devreye girmiştir.  
 Promise JS'de asenkron işlemler için kullanılan bir objecttir.Bir işlem tamamlandığında ya da başarısız olduğunda kullanılabilirler. İşlemlerin sıralı yürütülmesini kolaylaştırmaktadır.
-Promise'de 3 farklı durum vardır  
-1- Resolved: İŞlem tamamlandığını belirtir. İstek tamamlandıysa resolved olmuştur.  
+Promise'de 3 farklı durum vardır.  
+1- Resolved: İşlemin tamamlandığını belirtir. İstek tamamlandıysa resolved olmuştur.  
 2- Rejected: İşlem reddedilmiştir. Hata oluşmuştur(Network error, Cors error vb.)  
 3- Pending: İşlem henüz tamamlanmamıştır.  
 
@@ -27,15 +27,15 @@ try {
 
 ```
 
-Yukarıdaki  kod örneğinde  nasıl bir çıktı oluşur? Sunucu http 404 döndüğünde bunu hata olarak mı yakalar?  Yanıt tabiki "hayır". Sunucu  http 404 dönecek ama konsolda "işlem başarılı" yazacaktır. Bu istenmeyen bir senaryodur.
+Yukarıdaki  kod örneğinde  nasıl bir çıktı oluşur? Sunucu http 404 döndüğünde bunu hata olarak mı yakalar?  Yanıt tabiki "hayır". Sunucu  http 404 dönecek ama konsolda "işlem başarılı" yazacaktır. Bu istenmeyen bir senaryo olabilir.
 
-## Fetch Api Kullanımında Hata/İstisnayı Nasıl Yönetmeliyiz ? 
+## Fetch Api Kullanımında Hatayı Nasıl Yönetmeliyiz ? 
 Fetch api  kullanırken birden farklı hata ile karşılaşabiliriz. Bunlar sunucu taraflı hatalar (5xx), not found(404), network hataları ya da cors hataları olabilir.
 
 ## Try/Catch bloğu
 Fetch api promise tabanlı olduğu için, resolved,rejected,pending durumlarını yönetirken then,catch,finally keywordlerini tam anlamıyla kullanmamızı sağlar. Try/catch bloğu bildiğiniz gibi  hata yönetiminde standart haline geldi desek abartmış olmayız.
 
-```JS
+```js
 try {
     const response = await  fetch('https://google.com/api');
   } catch {
@@ -44,12 +44,12 @@ try {
 }
 
 ```
-Yukarıdaki kod örneği promise rejected olduğunda hata verecek şekilde tasarlanmıştır. Bu istek CORS hatası döneceği için konsolda "hata oluştu " yazacaktır. Bu kod bloğuna göre İşlem resolved olduğu durumda hata alınmaz. Yani 404,500 gibi status hatalarında catch() bloğu bunları yakalamayacaktır.
+Yukarıdaki kod örneği, promise rejected olduğunda hata verecek şekilde tasarlanmıştır. Bu istek CORS hatası döneceği için konsolda "hata oluştu " yazacaktır. Bu kod bloğuna göre İşlem resolved olduğu durumda hata alınmaz. Yani 404,500 gibi status hatalarında catch() bloğu bunları yakalamayacaktır.
 
 ## Hata yönetiminde Http Status kontrolü 
 Promise'in resolved olduğu, yani isteğimizin başarılı olduğu ancak, http status değerinin Ok olmadığı durumları ele alacağız.
 
-```JS
+```js
 const response = await fetch("https://jsonplaceholder.typicode.com/todoss");
 
   if(response.ok){
@@ -60,12 +60,12 @@ const response = await fetch("https://jsonplaceholder.typicode.com/todoss");
   }
 
 ```
-Yukarıdai kod bloğu, http status kodu 2xx olduğunda "status ok" yazacaktır. Onunda dışındaki durum kodlarında ise konsolda hata basacaktır. Bu kod örneğinde sunucu 404 döndüğü için konsolda "hata, statusCode:404" yazacaktır.
+Yukarıdaki kod bloğu, http status kodu 2xx olduğunda "status ok" yazacaktır. Onun dışındaki durum kodlarında ise konsolda hata basacaktır. Bu kod örneğinde sunucu 404 döndüğü için konsolda "hata, statusCode:404" yazacaktır.
 
 Peki Http Status 2xx dışındakileri de catch() bloğumuz yakalasın istersek nasıl bir senaryo oluşturmalıyız.
 ## Benim tek doğrum var, ondan gayrisi hatadır kardeşim
-Diye sersenişte bulunanlar için şöyle bir senaryo var: Response.Ok olduğu durumların true, diğer tüm durumların( http status kodları ve cors,network errorlar dahil) hata olarak catch bloğunda yakalanacağı bir kod bloğu oluşturacağız.
-```JS
+... şeklinde sersenişte bulunanlar için şöyle bir senaryo var: Response.Ok olduğu durumların true, diğer tüm durumların( http status kodları ve cors,network errorlar dahil) hata olarak catch bloğunda yakalanacağı bir kod bloğu oluşturacağız.
+```js
  try {
     const response = await fetch("https://jsonplaceholder.typicode.com/todos");
     if (response.ok) {
@@ -80,7 +80,7 @@ Diye sersenişte bulunanlar için şöyle bir senaryo var: Response.Ok olduğu d
 ```
 Yukarıdaki kod bloğunda , sunucu 200 OK döndüğünden çıktımız "İşlem başarılı(resolved),Http statusCode:200"  olacaktır.
 
-```JS
+```js
 try {
     const response = await fetch("https://jsonplaceholder.typicode.com/todoss");
     if (response.ok) {
@@ -95,7 +95,7 @@ try {
 ```
 Yukarıdaki kod bloğunda ise sunucu 404 döndüğünden, throw new Error kodu ile hata fırlatılmış ve catch() bloğunda yakalanmıştır.Çıktısı "Error: 404" oalcaktır. 
 
-```JS
+```js
  try {
     const response = await fetch("https://google.com/api");
     if (response.ok) {
