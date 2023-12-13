@@ -6,7 +6,7 @@ title: Derinlemesine Yup Kullanımı
 ## Yup Nedir ?   
 Yup, react uygulamalarında form validasyon yapmamızı sağlayan kütüphanedir.  
 
-npm install yup komutu ile kolayca orpjenize ekleyebilirsiniz. Yup kurulumu tamamlanınca şema tanımlama işlemine başlayabilirsiniz. Yup'ta form validasyonları şema olarak adlandırılan  object'ler ile yapılır.   
+"npm install yup" komutu ile kolayca projenize ekleyebilirsiniz. Yup kurulumu tamamlanınca, şema tanımlama işlemine başlayabilirsiniz. Yup'ta form validasyonları şema olarak adlandırılan  object'ler ile yapılır.   
 
 örnek olarak kullanıcı adı ve parola alanı için bir validasyon şeması tanımlayalım.  
 ``` js
@@ -37,8 +37,8 @@ uygulamayı çalıştırdığımızda konsolda aşağıdaki gibi hata alacağız
 ```js
 ValidationError: password must be at least 8 characters
 ```
-Dikkat edilmesi gereken hususlar, formdaki alanların, schmema içerisindeki field'lar ile aynı olmasıdır.
-Yup, farklı veri türleri için validasyon şema nesnesi barındırır. Örnein number(),positive(),email() vb.   
+Dikkat edilmesi gereken hususlar, formdaki alanların, şemaa içerisindeki field'lar ile aynı olmasıdır.
+Yup, farklı veri türleri için validasyon şema nesnesi barındırır. Örneğin number(),positive(),email() vb.   
 ``` js
 import schema from './validationScheme';
 export default function YupTest() {
@@ -67,7 +67,7 @@ uygulamayı çalıştırdığımızda aşağdaki hatayı alacağız
 ```js
 ValidationError: eposta formatına uygun olmalıdır 
 ```
-aşağıdaki gibi bir formData validate etmeye çalışırsak, "Epost alanı gereklidir" hatası alıyor olacağız.
+Eğer aşağıdaki gibi bir formData validate etmeye çalışırsak, "Eposta alanı gereklidir" hatası alıyor olacağız.
 
 ```js
 import schema from './validationScheme';
@@ -83,7 +83,7 @@ export default function YupTest() {
 
 
 ```
-Yup ile regex patter yazıp, formdaki alanın bu kalıba uyup uymadığını da test edebiliriz.
+Yup ile regex pattern tanımlayıp, formdaki alanın bu kalıba uyup uymadığını da test edebiliriz.
 
 Telefon numarası için  tanımlanmış bir yup şeması 
 ```js
@@ -151,8 +151,8 @@ const schema=YUP.object().shape({
 
 export default schema;
 ```
-Numerik alanlar için validasyon  şeması
-pozitif tam sayı şeması tanımlanmıştır.
+Numerik alanlar için validasyon  şeması tanımını da yapabilmekteyiz.  
+Örnek olarak Pozitif tam sayı şeması tanımlanmıştır.
 
 ``` js
 
@@ -176,7 +176,25 @@ export default function YupTest() {
 }
 
 ```
-çalıştırdığımızda "ValidationError: tam sayı olmalı" hatasını alacağız
+çalıştırdığımızda "ValidationError: tam sayı olmalı" hatasını alacağız.
+
+Yup ile test methodu da tanımlayıp, validasyon testini de yapabilmekteyiz. 
+Aşağıdaki örnekte, araba alanı mercedes olarak gönderilmediği takdirde "xx not mercedes" hatası dönecek şemayı yazdık.
+
+```js
+import * as YUP from 'yup'
+
+const schema=YUP.object().shape({
+   araba:YUP
+         .string()
+         .test("is mercedes","${path} is not mercedes",value=>value==="mercedes")
+           
+})
+
+export default schema;
+```
+
+
 
 
 
