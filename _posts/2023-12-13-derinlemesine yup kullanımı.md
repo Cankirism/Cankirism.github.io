@@ -63,7 +63,7 @@ const schema=YUP.object().shape({
 
 export default schema;
 ```
-uygulamayı çalıştırdığımızda aşağdaki hatayı alacağız 
+uygulamayı çalıştırdığımızda aşağıdaki hatayı alacağız 
 ```js
 ValidationError: eposta formatına uygun olmalıdır 
 ```
@@ -193,6 +193,10 @@ const schema=YUP.object().shape({
 
 export default schema;
 ```
+
+Yeni yazımızda görüşmek üzere ...  
+
+
 
 
 
